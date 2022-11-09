@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 
 path='/Users/alberto/Documents/doc/partituras_doc/'
 #titles=['ALP-Graffiti1_JSB.mxl','JSB-ArtOfFugue-I.mid','ALP-Graffiti2_BB.mxl','Bartok-ConcOrch-I.mxl','ALP-Graffiti3_DB.mxl','DB-MyFavoriteThings.mxl','ALP-Graffiti8_FJH.mxl','Haydn-Symph88_1.mid']
-titles=['ALP-Graffiti1_JSB.mxl','JSB-Brandenburg1-I_BWV1046.mid','JSB-Brandenburg2-I_BWV1047.mid','JSB-Brandenburg3-I_BWV1048.mid']
+titles=['JSB-Brandenburg1-I_BWV1046.mid','JSB-Brandenburg2-I_BWV1047.mid','DB-MyFavoriteThings.mxl','Webern-Concerto_Op.24.mxl','RagaAsawariJaunaPuri.mxl','Haydn-Symph88_1.mid']
 files=[path+titles[i] for i in range(len(titles))]
-lst_inicios=[1,1,1,1]
-lst_fines=[4,4,4,4]
+lst_inicios=[1,1,22,1,48,17]
+lst_fines=[4,4,25,4,51,20]
 print(files)
 l=len(files)
 #OJO: probablemente despues haya que actualizar el siguiente diccionario de categorías de datos sobre las cuales correr el TDA
@@ -18,7 +18,7 @@ dic_bottleneck={}
 
 for i in range(l):
     for j in range(i+1,l):
-        dic=bottleneckDistTDA_scores(files[i],files[j],inicios=[lst_inicios[i],lst_inicios[j]],fines=[lst_fines[i],lst_fines[j]],showTDAplots=[False,False],showScore=False,showChords=False,showBottleMatchPlots=True)#esto da un diccionario de diccionarios
+        dic=bottleneckDistTDA_scores(files[i],files[j],inicios=[lst_inicios[i],lst_inicios[j]],fines=[lst_fines[i],lst_fines[j]],showTDAplots=[False,False],showScore=False,showChords=False,showBottleMatchPlots=False)#esto da un diccionario de diccionarios
         dic_bottleneck['{},{}'.format(str(i),str(j))]={}
         for x in dic:#x es la categoria en dic_bottleneck y en dic (OJO: deben coincidir con las dadas en dic_TDAcats, que también se define explícitamente en el módulo bottleneckDistTDA_scores)
             lst=[]

@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from plot_barcodes_ripser import plot_barcodes
 from transpBajoFin import transpBajoFin
 
-titulo="ALP-Graffiti8_FJH.mxl"
+titulo="ALP-Graffiti1_JSB.mxl"
 score=m21.converter.parse('/Users/alberto/Documents/doc/partituras_doc/{}'.format(titulo))#NOTA: hay que quitar en el archivo .xml o .mxl, etc los pentagramas que sean de percusiones no afinadas
 #print("Haydn Cuarteto de Cuerdas op.74 no.1 en Do Mayor, III - Minueto")
 eventos=[]
@@ -19,7 +19,7 @@ eventosB=[]
 #score.measures(0,5).show()
 #acs=score.chordify() #esta instruccion es para considerar TODO el archivo.
 inicio=1
-fin=4
+fin=16
 titulo_frag="{}, cc.{}-{}".format(titulo,str(inicio),str(fin))
 acs=score.measures(inicio,fin).chordify() #si no se quiere todo el score, hay que poner score.measures(a,b).chordify()
 #acs.show()#hay una incongruencia entre el score original y el que genera music21. en el primer piano se recorre la primera figura.(esto aplica para el son de la noche para piano a 4 manos)
@@ -248,6 +248,7 @@ for i in range(a,b):
         E+=Ek
     print("Característica de Euler del CS-Ev", i,": " ,E)
     NumsBetti_CSEv_Tot.extend([tuple(NumsBetti_CSEv_i) , E])
+print("NumsBetti_CSEv_Tot:")
 print(NumsBetti_CSEv_Tot)
 
 
@@ -310,6 +311,7 @@ for i in range(a+r,b-r):
         E+=Ek
     print("Característica de Euler del CS-Ev_{}".format(str(r)), i,": " ,E)
     NumsBetti_CSEv_r_Tot.extend([tuple(NumsBetti_CSEv_r) , E])
+print("NumsBetti_CSEv_r_Tot:")
 print(NumsBetti_CSEv_r_Tot)
 
 
